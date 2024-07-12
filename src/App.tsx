@@ -1,4 +1,5 @@
 import { useState } from "react";
+import confetti from "canvas-confetti";
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array: number[]) {
@@ -26,6 +27,11 @@ function App() {
   const handleShuffle = () => {
     setRed(getTop(shuffleArray(redArray), 6));
     setBlue(getTop(shuffleArray(blueArray), 1));
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.7 },
+    });
   };
 
   return (
@@ -47,7 +53,7 @@ function App() {
           })}
         </div>
       </div>
-      <div className="card">
+      <div className="!mt-20">
         <button onClick={handleShuffle}>I'm Feeling Lucky</button>
       </div>
     </div>
