@@ -2,11 +2,18 @@ import { useState } from "react";
 import confetti from "canvas-confetti";
 import classNames from "classnames";
 
+function cryptoRandom() {
+  const typedArray = new Uint8Array(1);
+  const randomValue = crypto.getRandomValues(typedArray)[0];
+  const randomFloat = randomValue / Math.pow(2, 8);
+  return randomFloat;
+}
+
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array: number[]) {
   const ret = [...array];
   for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(cryptoRandom() * (i + 1));
     const temp = array[i];
     array[i] = array[j];
     array[j] = temp;
