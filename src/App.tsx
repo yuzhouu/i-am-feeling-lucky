@@ -99,7 +99,7 @@ function App() {
           })}
         </div>
       </div>
-      <div className="!mt-20">
+      <div className="!mt-40">
         <button onClick={handleShuffle}>I'm Feeling Lucky</button>
       </div>
     </div>
